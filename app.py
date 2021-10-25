@@ -58,13 +58,13 @@ def preset():
         
         # Generate all possibilities: Ideal, 0.01, 0.05, etc.
         Art1 = QuantumArt(text=user_replies[0])
-        fig_name_noiseless=Art1.get_fname()
+        noiseless=Art1.get_fname()
 
         Art1.noise_art(custom_noise_vals=[0.01,0.01],fig_identifier='1')
-        fig_name_noise1=Art1.get_fname()
+        noise1=Art1.get_fname()
 
         Art1.noise_art(custom_noise_vals=[0.05,0.05],fig_identifier='2')
-        fig_name_noise2=Art1.get_fname()
+        noise2=Art1.get_fname()
         
         # Encoding image data to pass through; allows for dynamic images
         ### Noiseless
@@ -85,10 +85,9 @@ def preset():
             "preset_generator.html",
             #noiseless_img_data=encoded_img_data_noiseless.decode('utf-8'),
             #with_noise1_img_data=encoded_img_data_with_noise1.decode('utf-8'),
-            fname_noiseless = fig_name_noiseless + ".png",
-            fname_noise1 = fig_name_noise1 + ".png",
-            fname_noise2 = fig_name_noise2 + ".png",
-            
+            fname = noiseless + ".png",
+            fname1 = noise1 + ".png",
+            fname2 = noise2+ ".png",
             
             text = user_replies[0],
             answered=True,

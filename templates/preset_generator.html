@@ -19,37 +19,29 @@
 {% block content %}
 
 {% if answered %}
-<p style="color :white; ">noise2 = {{ fname_noise2 }} </p>
-<img src="{{ url_for('static', filename=noise2 ) }}" style="width:100%">
 <h6 class="centering">
     <p> Voila! Your very own art slideshow.</p>
-    <p> P(meas) is the probability a qubit will flip its state during measurement.</p>
-    <p> P(gate) is the probability a qubit will flip its state when a quantum gate is applied to it.</p>
 </h6>
 <div class="container centering">
-    
-    
-    
    <div class="slideshow-container">
-
     <div class="mySlides fade">
-        <p style="color :white; "> noiseless = {{ fname_noiseless }}/p>
         <div class="numbertext">1 / 3</div>
-        <img src="{{ url_for('static', filename=noiseless ) }}" style="width:100%"> 
+            <p style="color :white; "> fname = {{ fname }} </p>
+            <img src="{{ url_for('static', filename=fname ) }}" style="width:100%"> 
         <div class="text">The ideal case without any noise.</div>
     </div>
 
     <div class="mySlides fade">
         <div class="numbertext">2 / 3</div>
-        <p style="color :white; ">noise1 = {{ fname_noise1 }}</p>
-        <img src="{{ url_for('static', filename=noise1 ) }}" style="width:100%"> 
+            <p style="color :white; "> fname1 = {{ fname1 }} </p>
+            <img src="{{ url_for('static', filename=fname1 ) }}" style="width:100%"> 
         <div class="text">P(meas) and P(gate) = 0.01</div>
     </div>
 
     <div class="mySlides fade">
         <div class="numbertext">3 / 3</div>
-        <p style="color :white; ">noise2 = {{ fname_noise2 }} </p>
-        <img src="{{ url_for('static', filename=noise2 ) }}" style="width:100%">
+            <p style="color :white; "> fname2 = {{ fname2 }} </p>
+            <img src="{{ url_for('static', filename=fname2 ) }}" style="width:100%"> 
         <div class="text">P(meas) and P(gate) = 0.05</div>
     </div>
 
@@ -93,8 +85,12 @@
         dots[slideIndex-1].className += " active";
     }
     </script>
-
+  <h6 class="centering">
+    <p> P(meas) is the probability a qubit will flip its state during measurement.</p>
+    <p> P(gate) is the probability a qubit will flip its state when a quantum gate is applied to it.</p>
+  </h6>
   <div class="row">
+
     <div class="eight columns offset-by-two">
       <label for="name">Your text:</label>
     </div>
