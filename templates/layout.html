@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+    <title>Quantum Art Generator</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ==" crossorigin="anonymous" />
+
+
+    
+    <!-- Skeleton alerts adapted from https://github.com/nathancahill/skeleton-alerts -->
+    <style>
+      ul#navbar {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          justify-content: between;
+          text-align: center;
+          border-top: 1px solid #eee;
+          border-bottom: 1px solid #eee;
+      }
+      
+      ul#navbar>li {
+          display: inline;
+      }
+
+      ul#navbar>li>a {
+          display: inline-block;
+          text-align: center;
+          text-transform: uppercase;
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: .2rem;
+          margin-right: 35px;
+          text-decoration: none;
+          line-height: 6.5rem;
+          color: #222;
+      }
+      
+      .alert {
+          display: block;
+          padding: 20px;
+          /* border-left: 5px solid; */
+      }
+
+      .alert-success {
+          background-color: #D5F5E3;
+          /* border-left-color: #2ECC71; */
+          color: #2ECC71;
+      }
+
+      .alert-info {
+          background-color: #D6EAF8;
+          /* border-left-color: #3498DB; */
+          color: #3498DB;
+      }
+
+      .alert-warning {
+          background-color: #FCF3CF;
+          /* border-left-color: #F1C40F; */
+          color: #F1C40F;
+      }
+
+      .alert-error {
+          background-color: #F2D7D5;
+          /* border-left-color: #C0392B; */
+          color: #C0392B;
+      }
+
+      .centering {
+          text-align: center;
+      }
+
+      .left {
+          text-align: left;
+      }
+    
+    #loader{
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	background: url('https://www.radhapyarisandhir.com/wp-content/uploads/2021/10/Preloader_8.gif') no-repeat center;
+	z-index: 999;
+    }
+    
+    </style>
+
+    <!-- Iconify -->
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+
+    <div class="container">
+        <h1 class="centering">Quantum Art Generator</h1>
+        <h5 class="centering"> visualizing quantum noise through bubble art</h5>
+    </div>
+    
+  </head>
+  <body>
+    {% block banner %}
+    {% endblock %}
+
+    <ul id="navbar">
+      <li><a href="/">Home</a></li>
+      <li><a href="/preset">Preset</a></li>
+      <li><a href="/custom">Custom Noise</a></li>
+    </ul>
+    
+    {% block title %}
+    {% endblock %}
+    
+    {% block content %}
+    {% endblock %}
+
+    {% block footer %}
+    {% endblock %}
+  </body>
+</html>

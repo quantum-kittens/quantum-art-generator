@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+{% block banner %}
+<img src="https://www.radhapyarisandhir.com/wp-content/uploads/2021/10/app_banner.jpg" style="width:100%;" >
+
+
+{% endblock %}
+
+{% block title %}
+</p>
+<div class="container">
+  <div class="row">
+    <h4 class="centering">Custom Noise Generator</h4>
+    <h6 class="centering">
+      <p>This generates a piece of artwork from your specified levels of noise. </p>   
+      
+    </h6>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+{% if answered %}
+
+<div class="container centering">
+    <p style="color :white; "> fname = {{ fname }} </p>
+    <img src="{{ url_for('static', filename=fname ) }}" style="width:100%"> 
+  <div class="row">
+    <div class="eight columns offset-by-two">
+      <label for="name">Your probabilities:</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="eight columns offset-by-two">
+      <h4> P(meas) = {{ p_meas }}, P(gate) = {{ p_gate1 }} </h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="eight columns offset-by-two">
+      <label for="name">Your text:</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="eight columns offset-by-two">
+      <h4> {{ text }}</h4>
+    </div>
+  </div>
+
+
+
+  <a class="button button-primary" href="{{ url_for('custom') }}">REFRESH</a>
+  
+  
+</div>
+
+
+
+{% else %}
+
+<!-- Form <a class="button button-primary"><button type="submit" onclick="window.open('https://www.radhapyarisandhir.com/wp-content/uploads/2021/10/live_noiseless.png')">DOWNLOAD</button></a>-->
+<div class="container">
+  <form action="{{ url_for('custom') }}" method="post">
+      
+    <h6 class="centering">
+      <p>Your specifications are probabilities, and must be between 0 and 1.0. </p>
+      <p> P(meas) is the probability a qubit will flip its state during measurement.</p>
+      <p> P(gate) is the probability a qubit will flip its state when a quantum gate is applied to it.</p>
+    </h6>
+    
+    {% for category in categories %}
+    <div class="row">
+      <div class="eight columns offset-by-two">
+        {% if category == "p_meas" %}
+        <label for="{{ category }}">Enter P(meas): </label>
+        {% elif category == "p_gate1" %}
+        <label for="{{ category }}">Enter P(gate): </label>
+        {% else %}
+        <label for="{{ category }}">Enter your {{ category }}</label>
+        {% endif %}
+        <input class="u-full-width" type="text" name="{{ category }}">
+      </div>
+    </div>
+    {% endfor %}
+    <div class="eight columns offset-by-two centering">
+      <input class="button-primary" type="submit" value="Submit" id="roll_btn" />
+    </div>
+</div>
+
+{% endif %}
+
+{% endblock %}
+
+
