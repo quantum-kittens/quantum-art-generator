@@ -5,8 +5,10 @@ from flask import Flask, Markup, render_template, request
 from qiskit import IBMQ, BasicAer
 from qiskit.providers.ibmq import least_busy
 
-#from codes import *
-from quantum_art import QuantumArt
+from code import *
+#from .code.quantum_art import QuantumArt
+#from quantum_art import QuantumArt
+#import QuantumArt
 
 from PIL import Image, ImageFile
 ImageFile.LOAD_TRUNCATED_IMAGES = True
@@ -14,22 +16,6 @@ ImageFile.LOAD_TRUNCATED_IMAGES = True
 import base64
 import io
 
-###############################################################################
-# To run this on an actual quantum device, uncomment the following lines, and
-# comment out `backend = BasicAer.get_backend("qasm_simulator")`. Then
-# uncomment the lines in the `get class` section of the character generator
-# as described further down.
-###############################################################################
-
-# IBMQ.save_account("ibmq-token-goes-here")
-# provider = IBMQ.load_account()
-# backend = least_busy(
-#     provider.backends(
-#         filters=lambda x: x.configuration().n_qubits >= 5
-#         and not x.configuration().simulator
-#         and x.status().operational == True
-#     )
-# )
 
 backend = BasicAer.get_backend("qasm_simulator")
 
