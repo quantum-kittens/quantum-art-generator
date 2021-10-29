@@ -2,3 +2,4 @@ Flask==0.12.2
 matplotlib==3.3.0
 numpy==1.19.1
 qiskit_aqua==0.9.5
+gunicorn==20.1.0
