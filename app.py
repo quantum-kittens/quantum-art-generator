@@ -3,19 +3,15 @@ from collections import defaultdict, deque
 
 from flask import Flask, Markup, render_template, request
 from qiskit import IBMQ, BasicAer
-from qiskit.providers.ibmq import least_busy
 
 from code import *
-#from .code.quantum_art import QuantumArt
-#from quantum_art import QuantumArt
-#import QuantumArt
+
 
 from PIL import Image, ImageFile
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 import base64
 import io
-
 
 backend = BasicAer.get_backend("qasm_simulator")
 
