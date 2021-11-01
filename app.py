@@ -101,8 +101,15 @@ def custom():
             answered=True,
         )
         
-        
-
+    
+@app.route("/target_endpoint")
+def target():
+	# You could do any information passing here if you want (i.e Post or Get request)
+	#some_data = "Here's some example data"
+	#some_data = urllib.parse.quote(convert(some_data)) # urllib2 is used if you have fancy characters in your data like "+"," ", or "="
+	# This is where the loading screen will be.
+	# ( You don't have to pass data if you want, but if you do, make sure you have a matching variable in the html i.e {{my_data}} )
+	return render_template('loading.html')
 
 ## No caching at all for API endpoints.
 #@app.after_request

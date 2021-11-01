@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block banner %}
+<img src="https://www.radhapyarisandhir.com/wp-content/uploads/2021/10/app_banner.jpg" style="width:100%;" >
+
+
+{% endblock %}
+
+{% block title %}
+</p>
+<div class="container">
+  <div class="row">
+    <h4 class="centering">Blowing your bubbles!</h4>
+    <h6 class="centering">
+      <p>The bubbleblowers are hard at work. This may take some time. </p>   
+      
+    </h6>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container centering">
+    <img src="{{ url_for('static', filename='Preloader_8.gif' ) }}" style="width:20%"> 
+  
+</div>
+
+{% endblock %}
