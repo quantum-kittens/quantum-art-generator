@@ -91,9 +91,17 @@ def custom():
         Art2 = QuantumArt(text=user_replies[0])
         Art2.noise_art(custom_noise_vals=[float(user_replies[1]),float(user_replies[2])],fig_identifier='3')
         fig_name=Art2.get_fname()
+        
+        fpath = "static/" + fig_name + ".png"
+        
+        im = Image.open(fpath)
+        data = io.BytesIO()
+        im.save(data, "PNG")
+        encoded_img_data_with_noise1 = base64.b64encode(data.getvalue())
 
         return render_template(
             "custom_generator.html",
+            noise_img = encoded_img_data_with_noise1.decode('utf-8'),
             fname = fig_name + ".png",
             text = user_replies[0],
             p_meas=user_replies[1],
