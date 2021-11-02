@@ -6,6 +6,7 @@ import random
 import math
 import string
 import uuid
+import io
 
 from qiskit.providers.aer.noise import NoiseModel
 from qiskit.providers.aer.noise import pauli_error
@@ -289,15 +290,24 @@ class QuantumArt:
         #else:
         #    fig_name = 'noiseless'
         
-        my_uuid = uuid.uuid4()
+       # my_uuid = uuid.uuid4()
         
-        self.fig_name = str(my_uuid)
+       # self.fig_name = str(my_uuid)
         
-        fig_path = 'static/' + self.fig_name + '.png'
+        #fig_path = 'static/' + self.fig_name + '.png'
         
-        fig.savefig(fig_path, dpi = self.dpi)
+        #fig.savefig(fig_path, dpi = self.dpi)
+        
+        buffer_image = io.BytesIO()
+        self.buffer_image = buffer_image
+        
+        fig.savefig(buffer_image, format ="png")
+        buffer_image.seek(0)
          
         return fig
     
     def get_fname(self): #return the name of the figure
         return self.fig_name
+    
+    def get_buffer_image(self): #return the name of the figure
+        return self.buffer_image
