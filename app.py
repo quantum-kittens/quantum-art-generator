@@ -40,13 +40,65 @@ def preset():
         
         # Generate all possibilities: Ideal, 0.01, 0.05, etc.
         Art1 = QuantumArt(text=user_replies[0])
-        noiseless=Art1.get_fname()
+        #noiseless=Art1.get_fname()
+        
+        buffer_image = Art1.get_buffer_image()
+        im = Image.open(buffer_image)
+        
+        data = io.BytesIO()
+        im.save(data, "PNG")
+        encoded_ideal_img_data = base64.b64encode(data.getvalue())
+        
 
         Art1.noise_art(custom_noise_vals=[0.01,0.01],fig_identifier='1')
-        noise1=Art1.get_fname()
-
+        #noise1=Art1.get_fname()
+        
+        buffer_image = Art1.get_buffer_image()
+        im = Image.open(buffer_image)
+        
+        data = io.BytesIO()
+        im.save(data, "PNG")
+        encoded_noise_img1_data = base64.b64encode(data.getvalue())
+        ### 0.5
         Art1.noise_art(custom_noise_vals=[0.05,0.05],fig_identifier='2')
-        noise2=Art1.get_fname()
+        #noise2=Art1.get_fname()
+        
+        buffer_image = Art1.get_buffer_image()
+        im = Image.open(buffer_image)
+        
+        data = io.BytesIO()
+        im.save(data, "PNG")
+        encoded_noise_img2_data = base64.b64encode(data.getvalue())
+        
+        ### 0.1
+        Art1.noise_art(custom_noise_vals=[0.1,0.1],fig_identifier='3')
+        
+        buffer_image = Art1.get_buffer_image()
+        im = Image.open(buffer_image)
+        
+        data = io.BytesIO()
+        im.save(data, "PNG")
+        encoded_noise_img3_data = base64.b64encode(data.getvalue())
+        
+        ### 0.2
+        Art1.noise_art(custom_noise_vals=[0.2,0.2],fig_identifier='4')
+        
+        buffer_image = Art1.get_buffer_image()
+        im = Image.open(buffer_image)
+        
+        data = io.BytesIO()
+        im.save(data, "PNG")
+        encoded_noise_img4_data = base64.b64encode(data.getvalue())
+        
+        ### 0.5
+        Art1.noise_art(custom_noise_vals=[0.5,0.5],fig_identifier='5')
+        
+        buffer_image = Art1.get_buffer_image()
+        im = Image.open(buffer_image)
+        
+        data = io.BytesIO()
+        im.save(data, "PNG")
+        encoded_noise_img5_data = base64.b64encode(data.getvalue())
         
         # Encoding image data to pass through; allows for dynamic images
         ### Noiseless
@@ -67,10 +119,15 @@ def preset():
             "preset_generator.html",
             #noiseless_img_data=encoded_img_data_noiseless.decode('utf-8'),
             #with_noise1_img_data=encoded_img_data_with_noise1.decode('utf-8'),
-            fname = noiseless + ".png",
-            fname1 = noise1 + ".png",
-            fname2 = noise2+ ".png",
-            
+            #fname = noiseless + ".png",
+            #fname1 = noise1 + ".png",
+            #fname2 = noise2+ ".png",
+            ideal_img = encoded_ideal_img_data.decode('utf-8'),
+            noise_img1 = encoded_noise_img1_data.decode('utf-8'),
+            noise_img2 = encoded_noise_img2_data.decode('utf-8'),
+            noise_img3 = encoded_noise_img3_data.decode('utf-8'),
+            noise_img4 = encoded_noise_img4_data.decode('utf-8'),
+            noise_img5 = encoded_noise_img5_data.decode('utf-8'),
             text = user_replies[0],
             answered=True,
         )
@@ -107,7 +164,7 @@ def custom():
             "custom_generator.html",
             noise_img = encoded_img_data_with_noise1.decode('utf-8'),
             #fname = fig_name + ".png",
-            fname = "",
+            #fname = "",
             text = user_replies[0],
             p_meas=user_replies[1],
             p_gate1=user_replies[2],
