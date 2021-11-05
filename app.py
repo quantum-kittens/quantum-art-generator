@@ -38,9 +38,10 @@ def preset():
         user_categories = preset_user_categories
         user_replies = [request.form.get(category) for category in user_categories]
         
-        # Generate all possibilities: Ideal, 0.01, 0.05, etc.
+        # Generate six possibilities: Ideal, 0.01, 0.05, etc.
+        
+        ### Ideal
         Art1 = QuantumArt(text=user_replies[0])
-        #noiseless=Art1.get_fname()
         
         buffer_image = Art1.get_buffer_image()
         im = Image.open(buffer_image)
@@ -49,9 +50,8 @@ def preset():
         im.save(data, "PNG")
         encoded_ideal_img_data = base64.b64encode(data.getvalue())
         
-
+        ### 0.01
         Art1.noise_art(custom_noise_vals=[0.01,0.01],fig_identifier='1')
-        #noise1=Art1.get_fname()
         
         buffer_image = Art1.get_buffer_image()
         im = Image.open(buffer_image)
@@ -59,9 +59,9 @@ def preset():
         data = io.BytesIO()
         im.save(data, "PNG")
         encoded_noise_img1_data = base64.b64encode(data.getvalue())
-        ### 0.5
+        
+        ### 0.05
         Art1.noise_art(custom_noise_vals=[0.05,0.05],fig_identifier='2')
-        #noise2=Art1.get_fname()
         
         buffer_image = Art1.get_buffer_image()
         im = Image.open(buffer_image)
@@ -100,28 +100,10 @@ def preset():
         im.save(data, "PNG")
         encoded_noise_img5_data = base64.b64encode(data.getvalue())
         
-        # Encoding image data to pass through; allows for dynamic images
-        ### Noiseless
-        #im = Image.open("static/noiseless.png")
-        #data = io.BytesIO()
-        #im.save(data, "PNG")
-        #encoded_img_data_noiseless = base64.b64encode(data.getvalue())
-        
-        ### Noise 1
-        #im = Image.open("static/with_noise1.png")
-        #data = io.BytesIO()
-        #im.save(data, "PNG")
-        #encoded_img_data_with_noise1 = base64.b64encode(data.getvalue())
-        
         
         
         return render_template(
             "preset_generator.html",
-            #noiseless_img_data=encoded_img_data_noiseless.decode('utf-8'),
-            #with_noise1_img_data=encoded_img_data_with_noise1.decode('utf-8'),
-            #fname = noiseless + ".png",
-            #fname1 = noise1 + ".png",
-            #fname2 = noise2+ ".png",
             ideal_img = encoded_ideal_img_data.decode('utf-8'),
             noise_img1 = encoded_noise_img1_data.decode('utf-8'),
             noise_img2 = encoded_noise_img2_data.decode('utf-8'),
@@ -147,11 +129,6 @@ def custom():
         
         Art2 = QuantumArt(text=user_replies[0])
         Art2.noise_art(custom_noise_vals=[float(user_replies[1]),float(user_replies[2])],fig_identifier='3')
-        #fig_name=Art2.get_fname()
-        
-        #fpath = "static/" + fig_name + ".png"
-        
-        #im = Image.open(fpath)
         
         buffer_image = Art2.get_buffer_image()
         im = Image.open(buffer_image)
@@ -163,8 +140,6 @@ def custom():
         return render_template(
             "custom_generator.html",
             noise_img = encoded_img_data_with_noise1.decode('utf-8'),
-            #fname = fig_name + ".png",
-            #fname = "",
             text = user_replies[0],
             p_meas=user_replies[1],
             p_gate1=user_replies[2],
@@ -172,25 +147,6 @@ def custom():
         )
         
     
-@app.route("/target_endpoint")
-def target():
-	# You could do any information passing here if you want (i.e Post or Get request)
-	#some_data = "Here's some example data"
-	#some_data = urllib.parse.quote(convert(some_data)) # urllib2 is used if you have fancy characters in your data like "+"," ", or "="
-	# This is where the loading screen will be.
-	# ( You don't have to pass data if you want, but if you do, make sure you have a matching variable in the html i.e {{my_data}} )
-	return render_template('loading.html')
-
-## No caching at all for API endpoints.
-#@app.after_request
-#def add_header(response):
-#    # response.cache_control.no_store = True
-#    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0'
-#    response.headers['Pragma'] = 'no-cache'
-#    response.headers['Expires'] = '-1'
-#    return response
-
-
 
 if __name__ == "__main__":
     # Threaded option to enable multiple instances for multiple user access support

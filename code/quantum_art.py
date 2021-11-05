@@ -9,7 +9,7 @@ import uuid
 import io
 
 from qiskit.providers.aer.noise import NoiseModel
-from qiskit.providers.aer.noise import pauli_error
+from qiskit.providers.aer.noise import pauli_error, depolarizing_error
 from qiskit.providers.aer import AerSimulator
 
 
@@ -66,12 +66,11 @@ class QuantumArt:
         self.noise_hex_numbers = self.float2hexcode(self.noise_float_list)
         self.noise_color_list, self.noise_bubble_area = self.bubble_info(noise, self.noise_hex_numbers, self.noise_count_outcomes)
         self.noise_x, self.noise_y = self.generate_coords(num_bubbles = len(self.noise_color_list))
-        # self.replace_ideal_coords()
             
-        bubble_area = self.noise_bubble_area #+ self.ideal_bubble_area
-        color_list = self.noise_color_list #+ self.ideal_color_list
-        x = self.noise_x #+ self.ideal_x
-        y = self.noise_y #+ self.ideal_y
+        bubble_area = self.noise_bubble_area 
+        color_list = self.noise_color_list 
+        x = self.noise_x 
+        y = self.noise_y 
         
         
         self.fig_identifier = fig_identifier
@@ -140,7 +139,8 @@ class QuantumArt:
 
         # QuantumError objects
         error_meas = pauli_error([('X',p_meas), ('I', 1 - p_meas)])
-        error_gate1 = pauli_error([('X',p_gate1), ('I', 1 - p_gate1)])
+        error_gate1 = depolarizing_error(p_gate1,1)
+        
 
 
         # Add errors to noise model
@@ -231,14 +231,6 @@ class QuantumArt:
             self.bin_outcomes.pop(ind)
             self.count_outcomes.pop(ind)
             
-    def replace_ideal_coords(self):
-        for bin_val in self.ideal_bin_outcomes:
-            ind_noise = self.bin_outcomes.index(bin_val)
-            ind_ideal = self.ideal_bin_outcomes.index(bin_val)
-            self.noise_x[ind_noise] = self.ideal_x[ind_ideal]
-            self.noise_y[ind_noise] = self.ideal_y[ind_ideal]
-            
-        
         
     def bubble_info(self, noise, hex_numbers, count_outcomes):
         # Creates a color list and corresponding bubble area (ie size) list
@@ -262,7 +254,6 @@ class QuantumArt:
             y[i] = np.random.rand()
         return list(x), list(y)
     
-
     
     def build_art(self, noise, bubble_area, color_list, x, y):
         # A4 size proportions
@@ -284,20 +275,6 @@ class QuantumArt:
         plt.axis('off')
 
         
-        # Name the artwork    
-        #if noise:
-        #    fig_name = 'with_noise' + self.fig_identifier
-        #else:
-        #    fig_name = 'noiseless'
-        
-       # my_uuid = uuid.uuid4()
-        
-       # self.fig_name = str(my_uuid)
-        
-        #fig_path = 'static/' + self.fig_name + '.png'
-        
-        #fig.savefig(fig_path, dpi = self.dpi)
-        
         buffer_image = io.BytesIO()
         self.buffer_image = buffer_image
         
@@ -306,8 +283,6 @@ class QuantumArt:
          
         return fig
     
-    def get_fname(self): #return the name of the figure
-        return self.fig_name
     
     def get_buffer_image(self): #return the name of the figure
         return self.buffer_image
