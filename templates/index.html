@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block banner %}
-<img src="https://www.radhapyarisandhir.com/wp-content/uploads/2021/10/app_banner.jpg" style="width:100%;" >
+<img src="{{ url_for('static', filename='app_banner.jpg') }}" style="width:100%">
 
 
 {% endblock %}
@@ -19,7 +19,18 @@
 
 <div class="container">
   <h6 class="left">
-    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+    <p> This bubble art maker generates art from a textual input by harnessing noise on a quantum computer. What you see below is the bubble representation of "Live long and prosper" plus a little bit of quantum noise! </p>
+  </h6>
+ <div class="container centering">
+    <img src="{{ url_for('static', filename='bubble_art_wall.jpg') }}" style="width:60%">
+  </div>
+ 
+   <h6 class="left">
+    <p> There are two ways you can create your very own quantum bubble art:</p>
+    <ul>
+        <li> <a href="{{ url_for('preset') }}">Preset Noise</a>: This generates a slideshow of artworks with preset levels of noise. You can observe what happens as noise levels increase!</li>
+        <li> <a href="{{ url_for('custom') }}"> Custom Noise</a>: This generates a single piece of artwork from your own specified noise levels.</li>
+    </ul>
   </h6>
   
   <div class="container centering">
@@ -27,7 +38,7 @@
   </div>
  
    <h6 class="left">
-    <p> Ultricies mi eget mauris pharetra et ultrices. Massa enim nec dui nunc. Sit amet risus nullam eget felis eget nunc lobortis. Duis at tellus at urna. Blandit volutpat maecenas volutpat blandit aliquam. Id aliquet risus feugiat in ante metus dictum at.</p>
+    <p> As noise levels increase, more bubbles and more colors are introduced. You don't need to understand quantum noise in order to make the art, but if you'd like to understand what's happening, please check out the article: <a href="https://github.com/quantum-kittens/quantum-art-generator"> How I Use Quantum Computing to Create Art</a>.</p>
   </h6>
  
   <hr>
@@ -35,7 +46,7 @@
       
     <img src="https://www.radhapyarisandhir.com/wp-content/uploads/2021/10/Preloader_8.gif" width="75"> This would make a cool loading icon!
     <p>  <img src="https://www.radhapyarisandhir.com/wp-content/uploads/2020/10/music.png" width="22"> La dee da! <a href="https://incompetech.com/">Kevin MacLeod</a> </p>
-    <p><img src="https://www.radhapyarisandhir.com/wp-content/uploads/2020/10/info_icon.png" width="22"> For more information, please check out the Github <a href="https://github.com/quantum-kittens/dnd-mustarter-kit/">repo</a>.</p>
+    <p><img src="https://www.radhapyarisandhir.com/wp-content/uploads/2020/10/info_icon.png" width="22"> For more information, please check out the <a href="https://github.com/quantum-kittens/quantum-art-generator"> Github repo</a>.</p>
   </h6>
   
   
@@ -47,7 +58,8 @@
 {% block footer %}
 <hr>
 
-<h6 class="centering">This is a footer.</h6> 
+<h6 class="centering">Created by Radha Pyari Sandhir and James Wootton</h6> 
+<h6 class="centering">For complete credits please refer to the <a href="https://github.com/quantum-kittens/quantum-art-generator"> Github repo</a>.</h6> 
 
 
 
