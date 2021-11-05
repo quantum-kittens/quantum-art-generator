@@ -14,7 +14,7 @@ from qiskit.providers.aer import AerSimulator
 
 
 class QuantumArt:
-    def __init__(self, text = '',  n = 5, art_type = 'bubble', dpi = 1200, shots = 1024, fig_identifier = '0'):
+    def __init__(self, text = '',  n = 5, art_type = 'bubble', dpi = 3000, shots = 1024, fig_identifier = '0'):
         self.n = n # number of qubits on device
         self.art_type = art_type
         self.dpi = dpi # default 1200, recommend 3000 for high resolution
