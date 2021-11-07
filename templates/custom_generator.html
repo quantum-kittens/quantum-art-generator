@@ -11,10 +11,6 @@
 <div class="container">
   <div class="row">
     <h4 class="centering">Custom Noise Generator</h4>
-    <h6 class="centering">
-      <p>This generates a piece of artwork from your specified levels of noise. </p>   
-      
-    </h6>
   </div>
 </div>
 
@@ -25,6 +21,9 @@
 {% if answered %}
 
 <div class="container centering">
+    <h6 class="centering">
+      <p>Right-click and download the image to save it! </p>   
+    </h6>
     <img id="picture" src="data:image/png;base64,{{ noise_img }}" style="width:100%">
   <div class="row">
     <div class="eight columns offset-by-two">
@@ -63,9 +62,10 @@
   <form action="{{ url_for('custom') }}" method="post">
       
     <h6 class="centering">
+      <p>This generates a piece of artwork from your specified levels of noise. </p>   
       <p>Your specifications are probabilities, and must be between 0 and 1.0. </p>
       <p> P(meas) is the probability a qubit will flip its state during measurement.</p>
-      <p> P(gate) is the probability a qubit will be replaced by a random state when a quantum gate is applied to it.</p>
+      <p> P(gate) is the probability a qubit's state will be replaced by a random state when a quantum gate is applied to it.</p>
     </h6>
     
     {% for category in categories %}
