@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block banner %}
-<img src="https://www.radhapyarisandhir.com/wp-content/uploads/2021/10/app_banner.jpg" style="width:100%;" >
+<img src="{{ url_for('static', filename='app_banner.jpg') }}" style="width:100%">
 
 
 {% endblock %}
@@ -150,5 +150,6 @@
 {% endif %}
 
 {% endblock %}
+
 
 
