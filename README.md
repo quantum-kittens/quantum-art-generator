@@ -33,16 +33,9 @@ The app will available at `127.0.0.1:5000/`. You can direct your browser to that
 
 If you're interested in how the art generation works, and what P(meas) and P(gate) mean, take a look at the corresponding article [How I Use Quantum Computing to Create Bubble Art](https://github.com/quantum-kittens/quantum-art-generator)
 
-## Credits
-#### Created by:
-- Radha Pyari Sandhir (Github: [quantum-kittens](https://github.com/quantum-kittens), Twitter: [RadhaPyari](https://twitter.com/RadhaPyari))
-- James Wootton (Github: [quantumjim](https://github.com/quantumjim), Twitter: [decodoku](https://twitter.com/decodoku))
 
-#### Thanks to:
-- [Soham Pal](https://twitter.com/dragonbornmonk) for initial concept discussions
-- [Burak Şenol](https://buraksenol.medium.com/) for valuable input on the handling images in the cloud
 
-### Resources
+## Resources
 - [Qiskit Documentation: Building Noise Models](https://qiskit.org/documentation/tutorials/simulators/3_building_noise_models.html)
 - [Make use of noisy hardware: Building a noisy quantum random number generator](https://fullstackquantumcomputation.tech/blog/post-quantum-ugly-duckling/)
 - [Here’s How to Test Error Correction on an IBM Quantum Computer](https://medium.com/qiskit/heres-how-to-test-error-correction-on-an-ibm-quantum-computer-ecb086606e7)
@@ -54,8 +47,18 @@ If you're interested in how the art generation works, and what P(meas) and P(gat
 - [Qiskit Textbook](https://qiskit.org/textbook/content/ch-ex/)
 - [The Quantum Catalog](http://quantumcatalog.com/)
 
+## Credits
+#### Created by:
+- Radha Pyari Sandhir (Github: [quantum-kittens](https://github.com/quantum-kittens), Twitter: [RadhaPyari](https://twitter.com/RadhaPyari))
+- James Wootton (Github: [quantumjim](https://github.com/quantumjim), Twitter: [decodoku](https://twitter.com/decodoku))
 
-Cover photo by [Julian Hochgesang on Unsplash](https://unsplash.com/@julianhochgesang).
-Cool lodgin icon by [Poonam on smallenvelop](https://smallenvelop.com/display-loading-icon-page-loads-completely/)
+#### Thanks to:
+- [Soham Pal](https://twitter.com/dragonbornmonk) for initial concept discussions
+- [Burak Şenol](https://buraksenol.medium.com/) for valuable input on the handling images in the cloud
+
+#### Art:
+- Cover photo by [Julian Hochgesang on Unsplash](https://unsplash.com/@julianhochgesang).
+- Loading icon by [Poonam on smallenvelop](https://smallenvelop.com/display-loading-icon-page-loads-completely/)
+- Python bubble art by [codesharedot on dev.to](https://dev.to/codesharedot/computer-generated-art-with-python-3ala)
 
 
