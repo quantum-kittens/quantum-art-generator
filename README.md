@@ -36,6 +36,8 @@ If you're interested in how the art generation works, and what P(meas) and P(gat
 
 
 ## Resources
+
+#### Quantum Error Correction and Noise
 - [Qiskit Documentation: Building Noise Models](https://qiskit.org/documentation/tutorials/simulators/3_building_noise_models.html)
 - [Make use of noisy hardware: Building a noisy quantum random number generator](https://fullstackquantumcomputation.tech/blog/post-quantum-ugly-duckling/)
 - [Here’s How to Test Error Correction on an IBM Quantum Computer](https://medium.com/qiskit/heres-how-to-test-error-correction-on-an-ibm-quantum-computer-ecb086606e7)
