@@ -31,7 +31,7 @@ The app will available at `127.0.0.1:5000/`. You can direct your browser to that
 
 ##  How The Quantum Art Generator Works
 
-If you're interested in how the art generation works, and what P(meas) and P(gate) mean, take a look at the corresponding article [How I Use Quantum Computing to Create Bubble Art](https://github.com/quantum-kittens/quantum-art-generator)
+If you're interested in how the art generation works, and what P(meas) and P(gate) mean, take a look at the corresponding article [How I Use Quantum Computing to Create Bubble Art](https://radhapyari.medium.com/how-i-use-quantum-computing-to-create-bubble-art-d6c01f3ec2e)
 
 
 
