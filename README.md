@@ -56,7 +56,7 @@ If you're interested in how the art generation works, and what P(meas) and P(gat
 
 #### Thanks to:
 - [Soham Pal](https://twitter.com/dragonbornmonk) for initial concept discussions
-- [Burak Şenol](https://buraksenol.medium.com/) for valuable input on the handling images in the cloud
+- [Burak Şenol](https://buraksenol.medium.com/) for valuable input on handling images in the cloud
 
 #### Art:
 - Cover photo by [Julian Hochgesang on Unsplash](https://unsplash.com/@julianhochgesang).
