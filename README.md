@@ -23,9 +23,10 @@ If you want to run it on a actual quantum device, or just have a local copy of t
 
 1. Clone the git repository from [Github](https://github.com/quantum-kittens/quantum-prompt-generator).
 2. `cd` into the git repository.
-3. Execute `pip install -r requirements.txt`.
-4. Execute `export FLASK_APP=app.py`
-5. Execute `flask run`
+3. Create/Use a virtual environment with Python version 3.9.7
+4. Execute `pip install -r requirements.txt`.
+5. Execute `export FLASK_APP=app.py`
+6. Execute `flask run`
 
 The app will available at `127.0.0.1:5000/`. You can direct your browser to that location to access it. 
 
