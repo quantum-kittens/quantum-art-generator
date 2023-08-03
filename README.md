@@ -8,8 +8,6 @@ This app generates bubble art based on a textual input that is a visual represen
 
 ##  How to Use The Quantum Art Generator
 
-An online version is provided at [qartgen.herokuapp.com](https://qartgen.herokuapp.com/). 
-
 ### Navigating The Quantum Art Generator
 There are two ways art can be generated:
 - 'Preset Noise' generates a slideshow of artworks with strategically preset levels of noise so that you can observe the journey as noise levels increase.
